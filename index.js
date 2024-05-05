@@ -6,7 +6,7 @@ const input = [
   {
     type: "input",
     message: "Enter 3 letters of your logo",
-    name: "letters",
+    name: "textChars",
   },
   {
     type: "input",
@@ -20,6 +20,7 @@ const input = [
       choices: [
           { value: 'Circle' },   
           { value: 'Square' },  
+          { value: 'Rounded-Square' },  
           { value: 'Triangle' },               
       ]
   },
@@ -31,22 +32,31 @@ const input = [
 ];
 
 //Create SVG file from responses given
-function writeToFile(fileName, data) {
-  // console.log(data)
-  fs.writeFile(fileName, createLogo(data), (err) =>
+//function writeToFile(fileName, data)
+function writeToFile(fileName) {
+  const data = {
+    textChars: "baa",
+    textColor: "red",
+    shape: "Square",
+    shapeColor: "yellow"
+  }
+
+  createLogo(data)
+  fs.writeFile(fileName, createLogo(data), (err) => 
   err ? console.error(err) : console.log("Generated logo.svg"))
 }
 
 //Function to initialize app
 function init() {
-  inquirer
-  .prompt(input)
-  .then((response) => {    
+  // inquirer
+  // .prompt(input)
+  // .then((response) => {    
     const fileName = "output.svg";
-    writeToFile(fileName, response);
+    // writeToFile(fileName, response);
+    writeToFile(fileName);
     }
-  );
-}
+//   );
+// }
 
 // Function call to initialize app
 init();
