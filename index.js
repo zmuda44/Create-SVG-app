@@ -1,6 +1,6 @@
 const fs = require("fs")
 const inquirer = require("inquirer")
-const createLogo = require("./lib/shapes.js")
+const createLogo = require("./lib/generateSVG.js")
 
 const input = [
   {
@@ -37,11 +37,10 @@ function writeToFile(fileName) {
   const data = {
     textChars: "baa",
     textColor: "red",
-    shape: "Square",
+    shape: "Circle",
     shapeColor: "yellow"
   }
 
-  createLogo(data)
   fs.writeFile(fileName, createLogo(data), (err) => 
   err ? console.error(err) : console.log("Generated logo.svg"))
 }
