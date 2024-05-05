@@ -37,9 +37,11 @@ function writeToFile(fileName) {
   const data = {
     textChars: "baa",
     textColor: "red",
-    shape: "Circle",
+    shape: "Triangle",
     shapeColor: "yellow"
   }
+
+  // createLogo(data)
 
   fs.writeFile(fileName, createLogo(data), (err) => 
   err ? console.error(err) : console.log("Generated logo.svg"))
