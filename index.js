@@ -36,7 +36,7 @@ const input = [
 function writeToFile(fileName) {
   const data = {
     textChars: "baa",
-    textColor: "red",
+    textColor: "#0000FF",
     shape: "Triangle",
     shapeColor: "yellow"
   }
