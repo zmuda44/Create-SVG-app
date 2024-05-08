@@ -33,13 +33,13 @@ const input = [
 
 //Create SVG file from responses given
 //function writeToFile(fileName, data)
-function writeToFile(fileName) {
-  const data = {
-    textChars: "baa",
-    textColor: "#0000FF",
-    shape: "Triangle",
-    shapeColor: "yellow"
-  }
+function writeToFile(fileName, data) {
+  // const data = {
+  //   textChars: "baa",
+  //   textColor: "#0000FF",
+  //   shape: "Triangle",
+  //   shapeColor: "yellow"
+  // }
 
   // createLogo(data)
 
@@ -49,15 +49,15 @@ function writeToFile(fileName) {
 
 //Function to initialize app
 function init() {
-  // inquirer
-  // .prompt(input)
-  // .then((response) => {    
+  inquirer
+  .prompt(input)
+  .then((data) => {    
     const fileName = "output.svg";
     // writeToFile(fileName, response);
-    writeToFile(fileName);
+    writeToFile(fileName, data);
     }
-//   );
-// }
+  );
+}
 
 // Function call to initialize app
 init();
