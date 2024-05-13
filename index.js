@@ -31,17 +31,11 @@ const input = [
   }, 
 ];
 
-//Create SVG file from responses given
-//function writeToFile(fileName, data)
-function writeToFile(fileName, data) {
-  // const data = {
-  //   textChars: "baa",
-  //   textColor: "#0000FF",
-  //   shape: "Triangle",
-  //   shapeColor: "yellow"
-  // }
 
-  // createLogo(data)
+
+//Create SVG file from responses given
+function writeToFile(fileName, data) {
+
 
   fs.writeFile(fileName, createLogo(data), (err) => 
   err ? console.error(err) : console.log("Generated logo.svg"))
@@ -52,8 +46,7 @@ function init() {
   inquirer
   .prompt(input)
   .then((data) => {    
-    const fileName = "output.svg";
-    // writeToFile(fileName, response);
+    const fileName = "logo.svg";
     writeToFile(fileName, data);
     }
   );
