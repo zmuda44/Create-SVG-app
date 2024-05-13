@@ -36,7 +36,6 @@ const input = [
 //Create SVG file from responses given
 function writeToFile(fileName, data) {
 
-
   fs.writeFile(fileName, createLogo(data), (err) => 
   err ? console.error(err) : console.log("Generated logo.svg"))
 }
@@ -44,11 +43,17 @@ function writeToFile(fileName, data) {
 //Function to initialize app
 function init() {
   inquirer
-  .prompt(input)
-  .then((data) => {    
-    const fileName = "logo.svg";
-    writeToFile(fileName, data);
+  .prompt(input)  
+  .then((data) => { 
+     
+    if(data.textChars.length > 3) {
+      throw new Error("Must enter 3 characters only")
     }
+    else {
+      const fileName = "logo.svg";
+      writeToFile(fileName, data);
+    }      
+  }
   );
 }
 
